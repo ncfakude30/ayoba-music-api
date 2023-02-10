@@ -5,7 +5,7 @@ import { Track } from 'src/resource/track.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
-export class PlaylistsService {
+export class PlaylistService {
   constructor(
     @InjectRepository(Playlist)
     private readonly playlistRepository: Repository<Playlist>,
@@ -13,28 +13,28 @@ export class PlaylistsService {
     public readonly trackRepository: Repository<Track>
   ) {}
 
-  async findAll(): Promise<Playlist[]> {
+  async getPlaylists(): Promise<Playlist[]> {
     return await this.playlistRepository.find();
   }
 
-  async findOne(id: string): Promise<Playlist> {
+  async getPlaylistById(id: string): Promise<Playlist> {
 
     return await this.playlistRepository.findOne({where: {id }});
   }
 
-  async create(playlist: Playlist): Promise<Playlist> {
+  async createPlaylist(playlist: Playlist): Promise<Playlist> {
     return await this.playlistRepository.save(playlist);
   }
 
-  async update(id: string, playlist: Playlist): Promise<void> {
+  async updatePlaylist(id: string, playlist: Playlist): Promise<void> {
     await this.playlistRepository.update(id, playlist);
   }
 
-  async delete(id: string): Promise<void> {
+  async deletePlaylist(id: string): Promise<void> {
     await this.playlistRepository.delete(id);
   }
 
-  async addTrack(playlistId: string, trackId: string): Promise<void> {
+  async addTrackToPlaylist(playlistId: string, trackId: string): Promise<void> {
 
     const playlist: Playlist = await this.playlistRepository.createQueryBuilder('playlist')
     .leftJoinAndSelect('playlist.trackList', 'track').where('playlist.id = :id', { id: playlistId })

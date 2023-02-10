@@ -1,4 +1,4 @@
-import { Injectable, NestMiddleware, UnauthorizedException } from '@nestjs/common';
+import { Injectable, Logger, NestMiddleware, UnauthorizedException } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { verify } from 'jsonwebtoken';
 

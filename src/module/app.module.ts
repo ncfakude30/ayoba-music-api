@@ -1,7 +1,7 @@
 import { MiddlewareConsumer, Module, ValidationPipe } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { PlaylistsModule } from './playlists.module';
-import { TracksModule } from './tracks.module';
+import { PlaylistModule } from './playlist.module';
+import { TrackModule } from './track.module';
 import { AuthMiddleware } from 'src/security/auth.middleware';
 
 
@@ -17,8 +17,8 @@ import { AuthMiddleware } from 'src/security/auth.middleware';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
-    TracksModule,
-    PlaylistsModule,
+    TrackModule,
+    PlaylistModule,
   ],
 })
 export class AppModule {
