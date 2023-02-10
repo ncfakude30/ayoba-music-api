@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "42f70161-899c-40e2-8320-3c907ba09e40",
+		"name": "Ayoba-music-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add track",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Track 2\",\n    \"album\": \"Album 2\",\n    \"artist\": \"artist 2\",\n    \"duration\": 2,\n    \"artwork\": \"artwork 2\",\n    \"audio\": \"audio 2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/tracks",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tracks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add playlists",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"piano\",\n    \"creator\": \"Maphorisa\",\n    \"playtime\": 1,\n    \"trackList\": [\n    {\n        \"id\": 1,\n        \"name\": \"Track 1\",\n        \"album\": \"Album 1\",\n        \"artist\": \"artist 1\",\n        \"duration\": 1,\n        \"artwork\": \"artwork 1\",\n        \"audio\": \"audio 1\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Track 2\",\n        \"album\": \"Album 2\",\n        \"artist\": \"artist 2\",\n        \"duration\": 2,\n        \"artwork\": \"artwork 2\",\n        \"audio\": \"audio 2\"\n    }\n]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/playlists",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"playlists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get tracks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/tracks",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tracks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get playlists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/playlists",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"playlists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get track by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/tracks/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tracks",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "11"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get playlist by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/playlists/:id",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"playlists",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -4,8 +4,8 @@ import { PlaylistModule } from './playlist.module';
 import { TrackModule } from './track.module';
 import { AuthMiddleware } from 'src/security/auth.middleware';
 import * as dotenv from 'dotenv';
-import { Playlist } from 'src/entity/playlist.entity';
-import { Track } from 'src/entity/track.entity';
+import { Playlist } from 'src/entities/playlist.entity';
+import { Track } from 'src/entities/track.entity';
 
 dotenv.config();
 

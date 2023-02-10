@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Playlist } from 'src/entity/playlist.entity';
-import { Track } from 'src/entity/track.entity';
+import { Playlist } from 'src/entities/playlist.entity';
+import { Track } from 'src/entities/track.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -41,7 +41,7 @@ export class PlaylistService {
     .getOne();
 
     const track:Track =  await this.trackRepository.findOne({where: {id: trackId }});
-    
+
     if(track) {
         Logger.log(`Track with id: ${trackId} exists. Adding it to the playlist`);
         playlist.trackList.push(track);

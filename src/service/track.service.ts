@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Track } from 'src/entity/track.entity';
+import { Track } from 'src/entities/track.entity';
 import { Repository , FindOneOptions} from 'typeorm';
 
 @Injectable()

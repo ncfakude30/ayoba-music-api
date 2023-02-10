@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Put, Delete, Body, Param, UseGuards } from '@nestjs/common';
-import { Playlist } from 'src/entity/playlist.entity';
+import { Playlist } from 'src/entities/playlist.entity';
 import { PlaylistService } from 'src/service/playlist.service';
 import { UsePipes, ValidationPipe } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';

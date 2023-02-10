@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PlaylistController } from 'src/controller/playlist.controller';
-import { Playlist } from 'src/entity/playlist.entity';
-import { Track } from 'src/entity/track.entity';
+import { Playlist } from 'src/entities/playlist.entity';
+import { Track } from 'src/entities/track.entity';
 import { JwtStrategy } from 'src/security/jwt.strategy';
 import { PlaylistService } from 'src/service/playlist.service';
 import { TrackService } from 'src/service/track.service';
