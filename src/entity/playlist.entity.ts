@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { IsNotEmpty, IsString, IsInt } from 'class-validator';
+import { Track } from './track.entity';
 
 @Entity()
 export class Playlist {
@@ -21,6 +22,6 @@ export class Playlist {
   @Column()
   playtime: number;
 
-  @Column('trackList')
-  trackList: string[];
+  @OneToMany(type => Track, track => track.playlist)
+  trackList: Track[];
 }

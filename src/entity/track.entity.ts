@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { IsNotEmpty, IsString, IsInt } from 'class-validator';
+import { Playlist } from './playlist.entity';
 
 @Entity()
 export class Track {
@@ -35,4 +36,8 @@ export class Track {
   @IsString()
   @Column()
   audio: string;
+
+  @ManyToOne(type => Playlist, playlist => playlist.trackList)
+  @JoinColumn({ name: 'playlist_id' })
+  playlist: Playlist;
 }

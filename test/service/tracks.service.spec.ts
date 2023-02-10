@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Track } from 'src/resource/track.entity';
+import { Track } from 'src/entity/track.entity';
 import { TrackService } from 'src/service/track.service';
 import { Repository } from 'typeorm';
 
@@ -30,7 +30,7 @@ describe('TracksService', () => {
   describe('createTrack', () => {
     it('creates a track', async () => {
       const track = { id: '1', name: 'Track 1', album: 'Album 1', 
-                    artist: 'artist', duration: 1, artwork: 'artwork', audio: 'audio' 
+                    artist: 'artist', duration: 1, artwork: 'artwork', audio: 'audio', playlist: null
                 };
 
       jest.spyOn(repository, 'save').mockImplementation(() => Promise.resolve(track));
@@ -43,10 +43,10 @@ describe('TracksService', () => {
     it('returns all tracks', async () => {
       const result = [
         { id: '1', name: 'Track 1', album: 'Album 1', 
-                    artist: 'artist 1', duration: 1, artwork: 'artwork 1', audio: 'audio 1' 
+                    artist: 'artist 1', duration: 1, artwork: 'artwork 1', audio: 'audio 1' , playlist: null
                 },
         { id: '2', name: 'Track 2', album: 'Album 2', 
-            artist: 'artist 2', duration: 2, artwork: 'artwork 2', audio: 'audio 2' 
+            artist: 'artist 2', duration: 2, artwork: 'artwork 2', audio: 'audio 2', playlist: null
         },
       ];
 
@@ -59,7 +59,7 @@ describe('TracksService', () => {
   describe('getTrackById', () => {
     it('returns a track by id', async () => {
       const result =  { id: '1', name: 'Track 1', album: 'Album 1', 
-      artist: 'artist 1', duration: 1, artwork: 'artwork 1', audio: 'audio 1' };
+      artist: 'artist 1', duration: 1, artwork: 'artwork 1', audio: 'audio 1' , playlist: null };
 
       jest.spyOn(repository, 'findOne').mockImplementation(() => Promise.resolve(result));
 
@@ -69,8 +69,8 @@ describe('TracksService', () => {
 
   describe('updateTrack', () => {
     it('updates a track', async () => {
-      const track = { id: '1', name: 'Track 1', album: 'Album 1', artist: 'artist 1', duration: 1, artwork: 'artwork 1', audio: 'audio 1' };
-      const result = { id: '2', name: 'Track 1', album: 'Album 2', artist: 'artist 2', duration: 2, artwork: 'artwork 2', audio: 'audio 2' };
+      const track = { id: '1', name: 'Track 1', album: 'Album 1', artist: 'artist 1', duration: 1, artwork: 'artwork 1', audio: 'audio 1' , playlist: null };
+      const result = { id: '2', name: 'Track 1', album: 'Album 2', artist: 'artist 2', duration: 2, artwork: 'artwork 2', audio: 'audio 2'  , playlist: null};
 
       jest.spyOn(repository, 'save').mockImplementation(() => Promise.resolve(result));
 

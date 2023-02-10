@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Playlist } from 'src/resource/playlist.entity';
-import { Track } from 'src/resource/track.entity';
+import { Playlist } from 'src/entity/playlist.entity';
+import { Track } from 'src/entity/track.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -40,9 +40,11 @@ export class PlaylistService {
     .leftJoinAndSelect('playlist.trackList', 'track').where('playlist.id = :id', { id: playlistId })
     .getOne();
 
-    if(await this.trackRepository.findOne({where: {id: trackId }})) {
+    const track:Track =  await this.trackRepository.findOne({where: {id: trackId }});
+    
+    if(track) {
         Logger.log(`Track with id: ${trackId} exists. Adding it to the playlist`);
-        playlist.trackList.push(trackId);
+        playlist.trackList.push(track);
         await this.playlistRepository.save(playlist);
     } else {
         Logger.warn(`Track with id: ${trackId} does not exist.`);

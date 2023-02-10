@@ -71,6 +71,8 @@ The API includes the following endpoints for tracks and playlists:
 ## Authorizing Requests
 All API requests require a valid JWT token to be included in the Authorization header. To obtain a token, send a POST request to /auth/login with a JSON payload containing the following fields:
 
+* Follow the instructions to generate the JWT token: [dev.io](https://dev.to/loopdelicious/using-jwt-to-authenticate-and-authorize-requests-in-postman-3a5h)
+
 ```json
 {
   "username": "<username>",
