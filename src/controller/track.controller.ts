@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Put, Delete, Body, Param, UseGuards } from '@nestjs/common';
-import { Track } from 'src/entities/track.entity';
+import { Track } from 'src/entity/track.entity';
 import { TrackService } from 'src/service/track.service';
 import { UsePipes, ValidationPipe } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';

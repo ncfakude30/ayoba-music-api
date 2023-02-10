@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { Track } from 'src/entities/track.entity';
+import { Track } from 'src/entity/track.entity';
 import { PlaylistService } from 'src/service/playlist.service';
 import { NotFoundException } from '@nestjs/common';
-import { Playlist } from 'src/entities/playlist.entity';
+import { Playlist } from 'src/entity/playlist.entity';
 import { Repository } from 'typeorm';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { TrackService } from 'src/service/track.service';

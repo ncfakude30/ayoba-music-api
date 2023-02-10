@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Playlist } from 'src/entities/playlist.entity';
-import { Track } from 'src/entities/track.entity';
+import { Playlist } from 'src/entity/playlist.entity';
+import { Track } from 'src/entity/track.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
